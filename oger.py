@@ -31,10 +31,11 @@ def final_choice_of_the_user() :
     while(decision != "yes" and decision != "no") :
         decision = input("      either 'yes' or 'no' please      ").lower()
         print(f"fdecision  {decision}")
-    if decision == 'yes' :
-        start_game()
-    elif decision == 'no' :
-        game_start_end_creditrs.game_over_ascii(first_name)
+        if decision == 'yes' :
+            start_game()
+            break
+        elif decision == 'no' :
+            game_start_end_creditrs.game_over_ascii(first_name)
 
 def start_game():
     print(f'Welcome, {first_name}: You are walking along and you come across a friendly looking monster \n')
@@ -57,8 +58,6 @@ def start_game():
         print("You fall down a pit and the monster rescues you\n")
         
         jungle.snake_ascii()
-
-        print('Go in the forest alone, a snake bit suddenly and you die')
 
         game_start_end_creditrs.game_over_ascii(first_name)
 
