@@ -11,57 +11,48 @@ print("""
 |_|  |_|\___/|_| |_|___/\__\___|_|     \_____|\__,_|_| |_| |_|\___|
 
 """)
-first_name = input('Enter your name? ')
+#first_name = input('Enter your name? ')
+ask_name = "Enter your name?"
+def typewriter(write):
+    for char in write:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.1)
 
-# Function
-# Player went alone ASCII
-
-# def start_again():
-#     decision = input("Do you want to play again ")
-#     print(decision)
-#     while(decision != "yes" ):
-#         start_again()
-#         decision = True
-#     if decision == "yes":
-#         start_game()
-#     else:
-#         game_over()
+typewriter(ask_name)
+name = input()
 def final_choice_of_the_user() :
     decision = input("Do you want to play again (enter yes or no) ").lower()
     while(decision != "yes" and decision != "no") :
         decision = input("      either 'yes' or 'no' please      ").lower()
-        print(f"fdecision  {decision}")
         if decision == 'yes' :
             start_game()
             break
         elif decision == 'no' :
-            game_start_end_creditrs.game_over_ascii(first_name)
+            game_start_end_creditrs.game_over_ascii(name)
 
 def start_game():
-    print(f'Welcome, {first_name}: You are walking along and you come across a friendly looking monster \n')
-
+    typewriter(f'Welcome, {name}: You are walking along and you come across a friendly looking monster \n')
     jungle.hello_from_monster_ascii()
 
-    print('Monster, do you need any help?')
-
-    print('Enter Option yes or no')
+    typewriter('Monster, do you need any help? \n')
+    typewriter('Enter Option yes or no \n')
 
     selection = input()
 
     if selection == 'no'.lower():
-        print("You Declined Monster's help\n")
-
-        print("You choose to go alone. Walking in deep forest.")
+        typewriter("You Declined Monster's help.\n")
+        typewriter("Ok, but be careful in the forest.")
+        typewriter("You go alone. Walking in deep forest.")
 
         jungle.going_alone_ascii()
 
-        print("You fall down a pit and the monster rescues you\n")
+        typewriter("You fall down a pit.\n")
         
         jungle.snake_ascii()
 
-        game_start_end_creditrs.game_over_ascii(first_name)
+        game_start_end_creditrs.game_over_ascii(name)
 
         final_choice_of_the_user()
     
-
 start_game()
